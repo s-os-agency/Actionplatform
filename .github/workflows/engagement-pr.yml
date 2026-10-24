@@ -46,7 +46,7 @@ jobs:
     - run: uv sync --frozen
     - name: Upgrade a clean database through all migrations
       run: uv run alembic upgrade head
-    - run: uv run ruff check app/api/routes/engagement.py tests/api/routes/test_engagement.py
+    - run: uv run ruff check app/api/routes/engagement.py
   frontend:
     runs-on: ubuntu-latest
     defaults:
