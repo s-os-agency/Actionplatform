@@ -58,7 +58,7 @@ const PLANS = {
     highlight: true,
   },
   elite: {
-    name: "Sovereign",
+    name: "Enterprise",
     emoji: "👑",
     usd: 120,
     aed: 449,
@@ -79,7 +79,7 @@ const PLANS = {
       "Dedicated onboarding call",
     ],
     missing: [],
-    cta: "Go Sovereign",
+    cta: "Go Enterprise",
     highlight: false,
   },
 }
@@ -95,7 +95,7 @@ const FAQS = [
   },
   {
     q: "What is Cipher?",
-    a: "Cipher is your AI crypto oracle — a dedicated agent trained for crypto market analysis, DeFi strategy, Web3 trends, and portfolio risk assessment. Available on Operator and Sovereign plans.",
+    a: "Cipher is your AI crypto oracle — a dedicated agent trained for crypto market analysis, DeFi strategy, Web3 trends, and portfolio risk assessment. Available on Operator and Enterprise plans.",
   },
   {
     q: "What is Sage?",
@@ -103,7 +103,7 @@ const FAQS = [
   },
   {
     q: "Can I build agents and share them?",
-    a: "Yes — on Operator and Sovereign plans, you can create custom agents with any instructions, assign skills, and make them public for the community to use.",
+    a: "Yes — on Operator and Enterprise plans, you can create custom agents with any instructions, assign skills, and make them public for the community to use.",
   },
   {
     q: "What's the refund policy?",
