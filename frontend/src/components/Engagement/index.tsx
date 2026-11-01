@@ -244,7 +244,7 @@ export default function Engagement() {
     if (postForm.monitor_until) {
       monitorUntil = new Date(postForm.monitor_until)
       if (Number.isNaN(monitorUntil.getTime())) {
-        setError("Enter a valid monitoring end date.")
+        setError("Enter a valid end date.")
         return
       }
     }
@@ -969,3 +969,4 @@ const rowStyle = {
   padding: "14px",
   marginBottom: "10px",
 } satisfies CSSProperties
+
