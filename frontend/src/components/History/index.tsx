@@ -230,7 +230,7 @@ export default function History() {
                   {/* Agent responses */}
                   <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px", marginBottom: "16px" }}>
                     {AGENTS.map((agent) => {
-                      const text = (s as Record<string, string>)[agent.key]
+                      const text = s[agent.key as "atlas_response" | "nova_response" | "reza_response" | "kai_response"]
                       if (!text) return null
                       return (
                         <div key={agent.key} style={{

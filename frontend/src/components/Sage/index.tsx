@@ -467,7 +467,7 @@ export default function Sage() {
             }}
           />
           <button
-            onClick={send}
+            onClick={() => void send()}
             disabled={loading || !input.trim()}
             style={{
               padding: "10px 20px",
