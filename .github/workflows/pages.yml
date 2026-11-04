@@ -1,0 +1,51 @@
+name: Publish frontend to GitHub Pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - name: Install dependencies
+        run: bun install
+      - name: Configure project path
+        working-directory: frontend
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path("src/main.tsx")
+          s = p.read_text().replace("createRouter({ routeTree })", 'createRouter({ routeTree, basepath: "/Actionplatform" })')
+          s = s.replace('window.location.href = "/login"', 'window.location.href = "/Actionplatform/login"')
+          p.write_text(s)
+          PY
+      - name: Build frontend
+        working-directory: frontend
+        env:
+          VITE_API_URL: ${{ vars.VITE_API_URL }}
+        run: bun run build --base=/Actionplatform/
+      - name: Preserve route fallback
+        run: cp frontend/dist/index.html frontend/dist/404.html
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: frontend/dist
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
