@@ -32,7 +32,7 @@ jobs:
         working-directory: frontend
         env:
           VITE_API_URL: ${{ vars.VITE_API_URL }}
-        run: bun run build --base=/Actionplatform/
+        run: bunx vite build --base=/Actionplatform/ && bunx tsc -p tsconfig.build.json
       - name: Preserve route fallback
         run: cp frontend/dist/index.html frontend/dist/404.html
       - uses: actions/configure-pages@v5
