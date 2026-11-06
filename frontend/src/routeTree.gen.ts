@@ -9,31 +9,26 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SignupRouteImport } from './routes/signup'
-import { Route as ResetPasswordRouteImport } from './routes/reset-password'
-import { Route as RecoverPasswordRouteImport } from './routes/recover-password'
-import { Route as LoginRouteImport } from './routes/login'
 import { Route as LayoutRouteImport } from './routes/_layout'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as RecoverPasswordRouteImport } from './routes/recover-password'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
+import { Route as SignupRouteImport } from './routes/signup'
 import { Route as LayoutIndexRouteImport } from './routes/_layout/index'
-import { Route as LayoutSettingsRouteImport } from './routes/_layout/settings'
-import { Route as LayoutItemsRouteImport } from './routes/_layout/items'
 import { Route as LayoutAdminRouteImport } from './routes/_layout/admin'
+import { Route as LayoutAgentsRouteImport } from './routes/_layout/agents'
+import { Route as LayoutCipherRouteImport } from './routes/_layout/cipher'
 import { Route as LayoutCouncilRouteImport } from './routes/_layout/council'
 import { Route as LayoutEngagementRouteImport } from './routes/_layout/engagement'
+import { Route as LayoutHistoryRouteImport } from './routes/_layout/history'
+import { Route as LayoutItemsRouteImport } from './routes/_layout/items'
+import { Route as LayoutOnboardingRouteImport } from './routes/_layout/onboarding'
+import { Route as LayoutPricingRouteImport } from './routes/_layout/pricing'
+import { Route as LayoutSageRouteImport } from './routes/_layout/sage'
+import { Route as LayoutSettingsRouteImport } from './routes/_layout/settings'
 
-const SignupRoute = SignupRouteImport.update({
-  id: '/signup',
-  path: '/signup',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ResetPasswordRoute = ResetPasswordRouteImport.update({
-  id: '/reset-password',
-  path: '/reset-password',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const RecoverPasswordRoute = RecoverPasswordRouteImport.update({
-  id: '/recover-password',
-  path: '/recover-password',
+const LayoutRoute = LayoutRouteImport.update({
+  id: '/_layout',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LoginRoute = LoginRouteImport.update({
@@ -41,8 +36,19 @@ const LoginRoute = LoginRouteImport.update({
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LayoutRoute = LayoutRouteImport.update({
-  id: '/_layout',
+const RecoverPasswordRoute = RecoverPasswordRouteImport.update({
+  id: '/recover-password',
+  path: '/recover-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LayoutIndexRoute = LayoutIndexRouteImport.update({
@@ -50,19 +56,19 @@ const LayoutIndexRoute = LayoutIndexRouteImport.update({
   path: '/',
   getParentRoute: () => LayoutRoute,
 } as any)
-const LayoutSettingsRoute = LayoutSettingsRouteImport.update({
-  id: '/settings',
-  path: '/settings',
-  getParentRoute: () => LayoutRoute,
-} as any)
-const LayoutItemsRoute = LayoutItemsRouteImport.update({
-  id: '/items',
-  path: '/items',
-  getParentRoute: () => LayoutRoute,
-} as any)
 const LayoutAdminRoute = LayoutAdminRouteImport.update({
   id: '/admin',
   path: '/admin',
+  getParentRoute: () => LayoutRoute,
+} as any)
+const LayoutAgentsRoute = LayoutAgentsRouteImport.update({
+  id: '/agents',
+  path: '/agents',
+  getParentRoute: () => LayoutRoute,
+} as any)
+const LayoutCipherRoute = LayoutCipherRouteImport.update({
+  id: '/cipher',
+  path: '/cipher',
   getParentRoute: () => LayoutRoute,
 } as any)
 const LayoutCouncilRoute = LayoutCouncilRouteImport.update({
@@ -75,18 +81,54 @@ const LayoutEngagementRoute = LayoutEngagementRouteImport.update({
   path: '/engagement',
   getParentRoute: () => LayoutRoute,
 } as any)
+const LayoutHistoryRoute = LayoutHistoryRouteImport.update({
+  id: '/history',
+  path: '/history',
+  getParentRoute: () => LayoutRoute,
+} as any)
+const LayoutItemsRoute = LayoutItemsRouteImport.update({
+  id: '/items',
+  path: '/items',
+  getParentRoute: () => LayoutRoute,
+} as any)
+const LayoutOnboardingRoute = LayoutOnboardingRouteImport.update({
+  id: '/onboarding',
+  path: '/onboarding',
+  getParentRoute: () => LayoutRoute,
+} as any)
+const LayoutPricingRoute = LayoutPricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => LayoutRoute,
+} as any)
+const LayoutSageRoute = LayoutSageRouteImport.update({
+  id: '/sage',
+  path: '/sage',
+  getParentRoute: () => LayoutRoute,
+} as any)
+const LayoutSettingsRoute = LayoutSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => LayoutRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
+  '/': typeof LayoutIndexRoute
   '/login': typeof LoginRoute
   '/recover-password': typeof RecoverPasswordRoute
   '/reset-password': typeof ResetPasswordRoute
   '/signup': typeof SignupRoute
   '/admin': typeof LayoutAdminRoute
+  '/agents': typeof LayoutAgentsRoute
+  '/cipher': typeof LayoutCipherRoute
   '/council': typeof LayoutCouncilRoute
   '/engagement': typeof LayoutEngagementRoute
+  '/history': typeof LayoutHistoryRoute
   '/items': typeof LayoutItemsRoute
+  '/onboarding': typeof LayoutOnboardingRoute
+  '/pricing': typeof LayoutPricingRoute
+  '/sage': typeof LayoutSageRoute
   '/settings': typeof LayoutSettingsRoute
-  '/': typeof LayoutIndexRoute
 }
 export interface FileRoutesByTo {
   '/login': typeof LoginRoute
@@ -94,9 +136,15 @@ export interface FileRoutesByTo {
   '/reset-password': typeof ResetPasswordRoute
   '/signup': typeof SignupRoute
   '/admin': typeof LayoutAdminRoute
+  '/agents': typeof LayoutAgentsRoute
+  '/cipher': typeof LayoutCipherRoute
   '/council': typeof LayoutCouncilRoute
   '/engagement': typeof LayoutEngagementRoute
+  '/history': typeof LayoutHistoryRoute
   '/items': typeof LayoutItemsRoute
+  '/onboarding': typeof LayoutOnboardingRoute
+  '/pricing': typeof LayoutPricingRoute
+  '/sage': typeof LayoutSageRoute
   '/settings': typeof LayoutSettingsRoute
   '/': typeof LayoutIndexRoute
 }
@@ -108,25 +156,37 @@ export interface FileRoutesById {
   '/reset-password': typeof ResetPasswordRoute
   '/signup': typeof SignupRoute
   '/_layout/admin': typeof LayoutAdminRoute
+  '/_layout/agents': typeof LayoutAgentsRoute
+  '/_layout/cipher': typeof LayoutCipherRoute
   '/_layout/council': typeof LayoutCouncilRoute
   '/_layout/engagement': typeof LayoutEngagementRoute
+  '/_layout/history': typeof LayoutHistoryRoute
   '/_layout/items': typeof LayoutItemsRoute
+  '/_layout/onboarding': typeof LayoutOnboardingRoute
+  '/_layout/pricing': typeof LayoutPricingRoute
+  '/_layout/sage': typeof LayoutSageRoute
   '/_layout/settings': typeof LayoutSettingsRoute
   '/_layout/': typeof LayoutIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
+    | '/'
     | '/login'
     | '/recover-password'
     | '/reset-password'
     | '/signup'
     | '/admin'
+    | '/agents'
+    | '/cipher'
     | '/council'
     | '/engagement'
+    | '/history'
     | '/items'
+    | '/onboarding'
+    | '/pricing'
+    | '/sage'
     | '/settings'
-    | '/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/login'
@@ -134,9 +194,15 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/signup'
     | '/admin'
+    | '/agents'
+    | '/cipher'
     | '/council'
     | '/engagement'
+    | '/history'
     | '/items'
+    | '/onboarding'
+    | '/pricing'
+    | '/sage'
     | '/settings'
     | '/'
   id:
@@ -147,9 +213,15 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/signup'
     | '/_layout/admin'
+    | '/_layout/agents'
+    | '/_layout/cipher'
     | '/_layout/council'
     | '/_layout/engagement'
+    | '/_layout/history'
     | '/_layout/items'
+    | '/_layout/onboarding'
+    | '/_layout/pricing'
+    | '/_layout/sage'
     | '/_layout/settings'
     | '/_layout/'
   fileRoutesById: FileRoutesById
@@ -164,25 +236,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/signup': {
-      id: '/signup'
-      path: '/signup'
-      fullPath: '/signup'
-      preLoaderRoute: typeof SignupRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/reset-password': {
-      id: '/reset-password'
-      path: '/reset-password'
-      fullPath: '/reset-password'
-      preLoaderRoute: typeof ResetPasswordRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/recover-password': {
-      id: '/recover-password'
-      path: '/recover-password'
-      fullPath: '/recover-password'
-      preLoaderRoute: typeof RecoverPasswordRouteImport
+    '/_layout': {
+      id: '/_layout'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof LayoutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/login': {
@@ -192,11 +250,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_layout': {
-      id: '/_layout'
-      path: ''
-      fullPath: ''
-      preLoaderRoute: typeof LayoutRouteImport
+    '/recover-password': {
+      id: '/recover-password'
+      path: '/recover-password'
+      fullPath: '/recover-password'
+      preLoaderRoute: typeof RecoverPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_layout/': {
@@ -206,25 +278,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutIndexRouteImport
       parentRoute: typeof LayoutRoute
     }
-    '/_layout/settings': {
-      id: '/_layout/settings'
-      path: '/settings'
-      fullPath: '/settings'
-      preLoaderRoute: typeof LayoutSettingsRouteImport
-      parentRoute: typeof LayoutRoute
-    }
-    '/_layout/items': {
-      id: '/_layout/items'
-      path: '/items'
-      fullPath: '/items'
-      preLoaderRoute: typeof LayoutItemsRouteImport
-      parentRoute: typeof LayoutRoute
-    }
     '/_layout/admin': {
       id: '/_layout/admin'
       path: '/admin'
       fullPath: '/admin'
       preLoaderRoute: typeof LayoutAdminRouteImport
+      parentRoute: typeof LayoutRoute
+    }
+    '/_layout/agents': {
+      id: '/_layout/agents'
+      path: '/agents'
+      fullPath: '/agents'
+      preLoaderRoute: typeof LayoutAgentsRouteImport
+      parentRoute: typeof LayoutRoute
+    }
+    '/_layout/cipher': {
+      id: '/_layout/cipher'
+      path: '/cipher'
+      fullPath: '/cipher'
+      preLoaderRoute: typeof LayoutCipherRouteImport
       parentRoute: typeof LayoutRoute
     }
     '/_layout/council': {
@@ -241,23 +313,77 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutEngagementRouteImport
       parentRoute: typeof LayoutRoute
     }
+    '/_layout/history': {
+      id: '/_layout/history'
+      path: '/history'
+      fullPath: '/history'
+      preLoaderRoute: typeof LayoutHistoryRouteImport
+      parentRoute: typeof LayoutRoute
+    }
+    '/_layout/items': {
+      id: '/_layout/items'
+      path: '/items'
+      fullPath: '/items'
+      preLoaderRoute: typeof LayoutItemsRouteImport
+      parentRoute: typeof LayoutRoute
+    }
+    '/_layout/onboarding': {
+      id: '/_layout/onboarding'
+      path: '/onboarding'
+      fullPath: '/onboarding'
+      preLoaderRoute: typeof LayoutOnboardingRouteImport
+      parentRoute: typeof LayoutRoute
+    }
+    '/_layout/pricing': {
+      id: '/_layout/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof LayoutPricingRouteImport
+      parentRoute: typeof LayoutRoute
+    }
+    '/_layout/sage': {
+      id: '/_layout/sage'
+      path: '/sage'
+      fullPath: '/sage'
+      preLoaderRoute: typeof LayoutSageRouteImport
+      parentRoute: typeof LayoutRoute
+    }
+    '/_layout/settings': {
+      id: '/_layout/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof LayoutSettingsRouteImport
+      parentRoute: typeof LayoutRoute
+    }
   }
 }
 
 interface LayoutRouteChildren {
   LayoutAdminRoute: typeof LayoutAdminRoute
+  LayoutAgentsRoute: typeof LayoutAgentsRoute
+  LayoutCipherRoute: typeof LayoutCipherRoute
   LayoutCouncilRoute: typeof LayoutCouncilRoute
   LayoutEngagementRoute: typeof LayoutEngagementRoute
+  LayoutHistoryRoute: typeof LayoutHistoryRoute
   LayoutItemsRoute: typeof LayoutItemsRoute
+  LayoutOnboardingRoute: typeof LayoutOnboardingRoute
+  LayoutPricingRoute: typeof LayoutPricingRoute
+  LayoutSageRoute: typeof LayoutSageRoute
   LayoutSettingsRoute: typeof LayoutSettingsRoute
   LayoutIndexRoute: typeof LayoutIndexRoute
 }
 
 const LayoutRouteChildren: LayoutRouteChildren = {
   LayoutAdminRoute: LayoutAdminRoute,
+  LayoutAgentsRoute: LayoutAgentsRoute,
+  LayoutCipherRoute: LayoutCipherRoute,
   LayoutCouncilRoute: LayoutCouncilRoute,
   LayoutEngagementRoute: LayoutEngagementRoute,
+  LayoutHistoryRoute: LayoutHistoryRoute,
   LayoutItemsRoute: LayoutItemsRoute,
+  LayoutOnboardingRoute: LayoutOnboardingRoute,
+  LayoutPricingRoute: LayoutPricingRoute,
+  LayoutSageRoute: LayoutSageRoute,
   LayoutSettingsRoute: LayoutSettingsRoute,
   LayoutIndexRoute: LayoutIndexRoute,
 }
